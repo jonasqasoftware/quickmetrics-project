@@ -1,0 +1,4 @@
+.metrics-list {
+  display: flex;
+  flex-direction: column;
+}
