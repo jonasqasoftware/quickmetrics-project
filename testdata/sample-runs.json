@@ -1,0 +1,14 @@
+{
+  "runs": [
+    { "id": "synthetic-101", "outcome": "passed", "durationMs": 740, "retries": 0 },
+    { "id": "synthetic-102", "outcome": "passed", "durationMs": 810, "retries": 0 },
+    { "id": "synthetic-103", "outcome": "failed", "durationMs": 1320, "retries": 1 },
+    { "id": "synthetic-104", "outcome": "passed", "durationMs": 920, "retries": 0 },
+    { "id": "synthetic-105", "outcome": "passed", "durationMs": 690, "retries": 0 }
+  ],
+  "thresholds": {
+    "minimumPassRate": 90,
+    "maximumRetryRate": 10,
+    "maximumP95DurationMs": 1200
+  }
+}

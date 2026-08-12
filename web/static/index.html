@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Turn test-run data into transparent quality signals." />
+    <title>QuickMetrics | Quality signals for decisions</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to analysis workspace</a>
+    <header class="hero">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="QuickMetrics home">QM<span>.</span></a>
+        <a href="https://github.com/jonasqasoftware/quickmetrics-project">Source</a>
+      </nav>
+      <div class="hero-copy">
+        <p class="eyebrow">Quality engineering decision lab</p>
+        <h1>Metrics need context.<br /><em>Decisions need evidence.</em></h1>
+        <p class="intro">
+          Analyze test-run outcomes against thresholds you choose. Every signal is calculated from visible input—never
+          from invented production data.
+        </p>
+      </div>
+      <dl class="principles" aria-label="Project principles">
+        <div><dt>01</dt><dd>Explicit thresholds</dd></div>
+        <div><dt>02</dt><dd>Traceable inputs</dd></div>
+        <div><dt>03</dt><dd>Residual risk</dd></div>
+      </dl>
+    </header>
+
+    <main id="workspace">
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive workspace</p>
+          <h2 id="workspace-title">Test-run analysis</h2>
+          <p>The sample is synthetic and exists only to demonstrate the calculation contract.</p>
+        </div>
+
+        <form id="analysis-form">
+          <fieldset>
+            <legend>Decision thresholds</legend>
+            <label>Minimum pass rate (%) <input id="minimum-pass-rate" type="number" min="0" max="100" step="0.01" value="90" required /></label>
+            <label>Maximum retry rate (%) <input id="maximum-retry-rate" type="number" min="0" max="100" step="0.01" value="10" required /></label>
+            <label>Maximum p95 duration (ms) <input id="maximum-duration" type="number" min="1" step="1" value="1200" required /></label>
+          </fieldset>
+          <label for="runs">Test runs (JSON)</label>
+          <textarea id="runs" rows="13" spellcheck="false" aria-describedby="input-help" required></textarea>
+          <p id="input-help" class="hint">Each run needs a unique ID, outcome, positive duration, and retry count.</p>
+          <div class="actions">
+            <button type="submit">Analyze signals</button>
+            <button class="secondary" id="load-sample" type="button">Restore sample</button>
+          </div>
+        </form>
+
+        <section id="results" class="results" aria-live="polite" aria-labelledby="results-title" hidden>
+          <div class="result-header">
+            <div><p class="eyebrow">Calculated evidence</p><h2 id="results-title">Current signals</h2></div>
+            <strong id="decision" class="decision"></strong>
+          </div>
+          <div id="metric-grid" class="metric-grid"></div>
+          <div class="explanation"><h3>Decision explanation</h3><ul id="reasons"></ul></div>
+        </section>
+        <p id="error" class="error" role="alert" hidden></p>
+      </section>
+
+      <section class="method" aria-labelledby="method-title">
+        <p class="eyebrow">Method, not magic</p>
+        <h2 id="method-title">A signal is useful only when its source and limit are visible.</h2>
+        <div class="method-grid">
+          <article><span>Input</span><h3>Observed runs</h3><p>Outcomes, duration, and retries supplied as an explicit dataset.</p></article>
+          <article><span>Calculation</span><h3>Deterministic metrics</h3><p>Rates, average duration, and nearest-rank p95 computed by the Go service.</p></article>
+          <article><span>Decision</span><h3>Contextual thresholds</h3><p>A transparent comparison, never a universal definition of quality.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer><p>QuickMetrics is an educational Quality Engineering lab. It does not represent production telemetry.</p></footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
