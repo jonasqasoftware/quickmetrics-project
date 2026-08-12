@@ -1,0 +1,6 @@
+coverage.out
+quickmetrics
+.env
+.DS_Store
+.idea/
+.vscode/
