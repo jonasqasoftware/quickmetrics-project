@@ -1,5 +1,13 @@
 # QuickMetrics
 
+<p align="center">
+  <img src="docs/brand/social-preview.png" alt="Jonas Davila: engenharia de qualidade com evidência, clareza e método" width="100%">
+</p>
+
+[![CI](https://github.com/jonasqasoftware/quickmetrics-project/actions/workflows/quality.yml/badge.svg)](https://github.com/jonasqasoftware/quickmetrics-project/actions/workflows/quality.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-1e2024.svg)](LICENSE) [![Jonas Davila](https://img.shields.io/badge/portfolio-jonasdavila.com.br-a8432f.svg)](https://jonasdavila.com.br/en/)
+
+> **In English:** An educational Quality Engineering decision lab. It turns explicit test-run data into traceable signals (pass, failure, retry, p95) and compares them with user-defined thresholds. Go API, embedded accessible dashboard, synthetic sample data.
+
 QuickMetrics is an educational Quality Engineering decision lab. It turns explicit test-run data into traceable signals, compares those signals with context-specific thresholds, and explains why a result needs investigation.
 
 It addresses a common metrics failure: presenting percentages without their source, calculation, decision rule, or residual risk. Every displayed value is calculated by the Go API from visible input. The included sample is synthetic and is not production evidence.
